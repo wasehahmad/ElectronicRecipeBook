@@ -1,0 +1,20 @@
+import java.util.*;
+import junit.framework.*;
+
+public class TimeTreeTest extends TestCase{
+  
+  public void testAdd(){
+    Recipe rec1 = new Recipe("a","Entree",null,null,null,null,10,12);
+    Recipe rec2 = new Recipe("aa","Appetizer",null,null,null,null,25,1);
+    Recipe rec3 = new Recipe("ab","Salad",null,null,null,null,3,12);
+    Recipe rec4 = new Recipe("ac","Entree",null,null,null,null,21,0);
+    Recipe rec5 = new Recipe("ad","Dessert",null,null,null,null,0,22);
+    
+    TimeTree tree = new TimeTree();
+    
+    
+    
+  }
+  
+  
+}

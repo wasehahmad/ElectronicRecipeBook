@@ -1,0 +1,32 @@
+import java.util.*;
+
+public class TypeContainer{
+  
+ HashMap<String,LinkedList<Recipe>> map;
+ 
+ 
+ public TypeContainer(){
+   
+ map = new HashMap<String, LinkedList<Recipe>>();  
+   
+ }
+ 
+ public void add(Recipe rec){
+   if(map.containsKey(rec.getType()){
+    map.get(rec.getType()).add(rec); 
+     
+   }else{
+    LinkedList<Recipe> = new LinkedList<Recipe> ();
+    list.add(rec);
+    map.put(rec.getType(),list);
+     
+     
+   }
+   
+   
+ }
+  
+  
+  
+  
+}

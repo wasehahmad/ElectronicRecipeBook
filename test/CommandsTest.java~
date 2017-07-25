@@ -1,0 +1,78 @@
+import java.util.*;
+import junit.framework.*;
+
+public class CommandsTest extends TestCase{
+  
+  public void testCreate(){
+    
+    Commands command = new Commands();
+    
+    command.createDB("recipe_10.txt");
+    assertTrue(command.numOfRecipes()==10);
+    
+  }
+  
+  public void testAdd(){
+     Commands command = new Commands();
+    command.createDB("recipe_10.txt");
+    int size = command.numOfRecipes();
+    System.out.println(size);
+    assertTrue(command.add("a","b","c","d","e","f","12","13")==size+1);
+    assertTrue(command.getMain().contains("a"));
+    assertTrue(command.add("","","","","","","13","12")==size+2);
+    assertTrue(command.getMain().contains(""));
+    assertTrue(command.add("aa","b","c","d","e","f","12","13")==size+3);
+    assertTrue(command.getMain().contains("aa"));
+    assertTrue(command.add("ab","","","d g h i","k e","f l","12","13")==size+4);
+    assertTrue(command.getMain().contains("ab"));
+    assertTrue(command.add("ac","b","c","d","e","f","12","34")==size+5);
+    assertTrue(command.getMain().contains("ac"));
+    assertTrue(command.add("ad","b","c","d","e","f","34","54")==size+6);
+    assertTrue(command.getMain().contains("ad"));
+    assertTrue(command.add("ae","b","c","d","e","f","12","13")==size+7);
+    assertTrue(command.getMain().contains("ae"));
+    
+    
+  }
+  
+  public void testDelete(){
+  Commands command = new Commands();
+    command.createDB("recipe_10.txt");
+    int size = command.numOfRecipes();
+    String yes="yes",no="no";
+    
+    assertTrue(command.add("a","b","c","d","e","f","12","13")==size+1);
+   
+    assertTrue(command.add("","","","","","","13","12")==size+2);
+    
+    assertTrue(command.add("aa","b","c","d","e","f","12","13")==size+3);
+
+    assertTrue(command.add("ab","","","d g h i","k e","f l","12","13")==size+4);
+   
+    assertTrue(command.add("ac","b","c","d","e","f","12","34")==size+5);
+
+    assertTrue(command.add("ad","b","c","d","e","f","34","54")==size+6);
+
+    assertTrue(command.add("ae ","b","c","d","e","f","12","13")==size+7);
+      
+      command.delete(command.getMain().getRecipe("a"),yes);
+      assertFalse(command.getMain().contains("a"));
+ 
+      command.delete(command.getMain().getRecipe("aa"),no);
+      assertTrue(command.getMain().contains("aa"));
+      
+      command.delete(command.getMain().getRecipe("ab"),yes);
+      assertFalse(command.getMain().contains("ab"));
+      
+      command.delete(command.getMain().getRecipe("ac"),yes);
+      assertFalse(command.getMain().contains("ac"));
+      
+      command.delete(command.getMain().getRecipe("ad"),no);
+      assertTrue(command.getMain().contains("ad"));
+      
+      command.delete(command.getMain().getRecipe("ae"),yes);
+      assertFalse(command.getMain().contains("ae"));
+    
+  }
+    
+}

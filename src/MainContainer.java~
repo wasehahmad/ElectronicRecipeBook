@@ -1,0 +1,43 @@
+import java.util.*;
+
+public class MainContainer{
+  
+  private HashMap<String, Recipe> map;
+  
+  
+  //////////////////////think about making a hashmap within a hash map and dividing each recipe by the type i.e. salad, main, appetizer
+  public MainContainer(int size){
+    
+    map= new HashMap<String,Recipe>(size);
+    
+  }
+  
+  public void add(Recipe rec){
+
+    String key= rec.getName();
+    map.put(key,rec);
+    
+  }
+  
+  public boolean remove(Recipe rec){
+    if(map.containsKey(rec.getName())){
+     map.remove(rec.getName());
+     return true;
+    }else{
+     return false; 
+    }
+  }
+  
+  public int size(){
+   return map.size(); 
+  }
+  
+  public Recipe getRecipe(String name){
+   return map.get(name); 
+  }
+  
+  public boolean contains(String name){
+   return map.containsKey(name); 
+  }
+  
+}

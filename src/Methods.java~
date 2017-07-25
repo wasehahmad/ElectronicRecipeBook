@@ -1,0 +1,8 @@
+import java.util.*;
+
+public interface Methods{
+  
+ public Integer getTotal();
+ 
+  
+}

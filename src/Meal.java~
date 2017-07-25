@@ -1,0 +1,25 @@
+import java.util.*;
+
+
+public class Meal{
+  ArrayList<String> ingredients, cuisines;
+  Integer totalTime;
+  
+  
+  /**
+   * Constructor method of a meal plan consisting of an entree, a salad and 2 appetizers
+   * @param ingredients an array list of all the ingredients present in the meal
+   * @param cuisines an arrayList  of all the cuisines in the meal
+   * @param totalTime the total of all the prep times and the largest cook time
+   * 
+   */
+  public Meal(ArrayList<String> ingredients, ArrayList<Cuisine> cuisines, Integer totalTime){
+    this.ingredients=ingredients;
+    this.cuisines= cuisines;
+    this.totalTime = totalTime;
+    
+  }
+  
+  
+  
+}

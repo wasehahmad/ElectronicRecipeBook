@@ -1,0 +1,8 @@
+import java.util.*;
+
+public interface EMethods{
+  
+ public Integer getTotal();
+ 
+  
+}
